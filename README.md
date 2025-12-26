@@ -2,7 +2,7 @@
 A deliberately simple MVC framework in PHP with MySQL (PDO).
 The goal is to understand MVC, routing, and clean architecture.
 
-## Features
+## Features (planned)
 - Front Controller
 - Simple Router
 - MVC Architecture
