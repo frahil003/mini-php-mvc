@@ -1,0 +1,16 @@
+RewriteEngine On
+
+# Verhindert Directory Listing
+Options -Indexes
+
+# Root-Ornder / -> Front Controller
+# ^$-Regel muss VOR den anderen Regeln stehen
+RewriteRule ^$ public/index.php [L]
+
+# Wenn die Datei oder das Verzeichnis existiert → direkt ausliefern
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Alles andere an public/index.php weiterleiten
+RewriteRule ^ public/index.php [L]
