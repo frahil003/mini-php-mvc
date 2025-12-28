@@ -1,6 +1,5 @@
 # Mini PHP MVC Framework
-A deliberately simple MVC framework in PHP with MySQL (PDO).
-The goal is to understand MVC, routing, and clean architecture.
+A deliberately simple MVC framework in PHP with MySQL (PDO), designed for learning purposes. The goal is to understand MVC, routing, and clean architecture.
 
 ## Features (planned)
 - Front Controller
