@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# echte Dateien/Ordner direkt ausliefern
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# alles andere an index.php
+RewriteRule ^ index.php [L]
