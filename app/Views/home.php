@@ -14,5 +14,17 @@
 <body>
   <h1><?= htmlspecialchars($title ?? 'Mini PHP MVC', ENT_QUOTES, 'UTF-8') ?></h1>
   <p><?= htmlspecialchars($message ?? '', ENT_QUOTES, 'UTF-8') ?></p>
+  <?php if (isset($contacts) && is_array($contacts)): ?>
+    <h2>Contact List</h2>
+    <ul>
+      <?php foreach ($contacts as $contact): ?>
+        <li>
+          <?= htmlspecialchars($c['first_name'] . ' ' . $c['last_name'], ENT_QUOTES, 'UTF-8') ?>
+          — <?= htmlspecialchars($c['phone'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+          — <?= htmlspecialchars($c['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
 </body>
 </html>

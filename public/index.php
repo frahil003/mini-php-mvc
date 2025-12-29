@@ -14,13 +14,20 @@ declare(strict_types=1);
 require __DIR__ . '/../app/Core/View.php';
 require __DIR__ . '/../app/Core/Controller.php';
 require __DIR__ . '/../app/Core/Router.php';
+require __DIR__ . '/../app/Core/Database.php';
 require __DIR__ . '/../app/Core/App.php';
 
 // Load application controllers
 // Application-specific controllers (handle request logic)
 require __DIR__ . '/../app/Controllers/HomeController.php';
+// Load application models
+// Application-specific models (data access and business logic)
+require __DIR__ . '/../app/Models/Contact.php';
+
+// Load configuration settings
+$config = require __DIR__ . '/../config/config.php';
 
 // Create and run the application
 // App bootstraps routing and dispatches the current HTTP request to the correct controller/action
-$app = new App();
+$app = new App($config);
 $app->run();

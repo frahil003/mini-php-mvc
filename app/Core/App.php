@@ -4,15 +4,20 @@ declare(strict_types=1);
 final class App
 {
   private Router $router;
+  private Database $db;
 
-  public function __construct()
+  public function __construct(private array $config)
   {
     // Create a router to manage the routes
     $this->router = new Router();
 
+    // Create a database connection
+    $this->db = new Database($config['db']);
+
     // Routes: map paths to controller methods
     // get('/', [HomeController::class, 'index']) -> on GET / call HomeController::index()
     $this->router->get('/', [HomeController::class, 'index']);
+    $this->router->get('/contacts', [HomeController::class, 'contacts']);
   }
 
   // run(): processes the current HTTP request and executes the matching controller action
@@ -48,6 +53,6 @@ final class App
     }
 
     // Call the controller method (the method is responsible for output/rendering)
-    $controller->$action();
+    $controller->$action($this->db);
   }
 }
