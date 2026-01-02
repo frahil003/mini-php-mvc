@@ -19,9 +19,9 @@
     <ul>
       <?php foreach ($contacts as $contact): ?>
         <li>
-          <?= htmlspecialchars($c['first_name'] . ' ' . $c['last_name'], ENT_QUOTES, 'UTF-8') ?>
-          — <?= htmlspecialchars($c['phone'] ?? '', ENT_QUOTES, 'UTF-8') ?>
-          — <?= htmlspecialchars($c['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+          <?= htmlspecialchars($contact['first_name'] . ' ' . $contact['last_name'], ENT_QUOTES, 'UTF-8') ?>
+          - <?= htmlspecialchars($contact['phone'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+          - <?= htmlspecialchars($contact['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>
         </li>
       <?php endforeach; ?>
     </ul>
