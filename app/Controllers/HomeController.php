@@ -20,14 +20,12 @@ final class HomeController extends Controller
   }
   public function contacts(Database $db): void
   {
-    // Retrieve all contacts from the database using the Contact model
     $contacts = Contact::all($db);
 
-    // Render the 'contacts' view, passing the contacts data to the template
-    $this->view('home', [
-      'title' => 'Contact List', // Page title
-      'message' => 'Contacts from database', // Message to display
-      'contacts' => $contacts,   // Array of contacts to display
+    $this->view('contacts', [
+      'title' => 'Contact List',              // Page title
+      'message' => 'Contacts from database',  // Message to display
+      'contacts' => $contacts,                // Array of contacts to display
     ]);
   }
 }
